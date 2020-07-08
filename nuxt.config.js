@@ -97,6 +97,7 @@ export default {
   loading: {
     color: 'blue',
   },
+
   generate: {
     routes: () => {
       return EventService.getEvents().then((response) => {
