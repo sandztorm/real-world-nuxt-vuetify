@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link :to="'/event/' + event.id">
+  <nuxt-link
+    :to="'/event/' + event.id"
+    style="text-decoration: none; color: inherit;"
+  >
     <v-hover v-slot:default="{ hover }">
       <v-card
         v-ripple="{ center: true }"
