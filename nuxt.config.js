@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import EventService from './services/EventService.js'
 
 export default {
   /*
@@ -10,7 +11,7 @@ export default {
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'server',
+  target: 'static',
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
@@ -95,5 +96,14 @@ export default {
   build: {},
   loading: {
     color: 'blue',
+  },
+  generate: {
+    routes: () => {
+      return EventService.getEvents().then((response) => {
+        return response.data.map((event) => {
+          return '/event/' + event.id
+        })
+      })
+    },
   },
 }
